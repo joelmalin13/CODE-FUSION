@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-inverse-surface: #fcf8f8;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-high: #201f1f;
+  --color-surface-container: #1a1919;
+  --color-on-tertiary-container: #4a2c00;
+  --color-on-tertiary: #573500;
+  --color-tertiary-dim: #e79400;
+  --color-on-primary-fixed: #000000;
+  --color-on-tertiary-fixed: #2a1700;
+  --color-tertiary-fixed-dim: #e79400;
+  --color-secondary-fixed: #69f6b8;
+  --color-surface-variant: #262626;
+  --color-primary: #85adff;
+  --color-on-primary-fixed-variant: #002a62;
+  --color-surface-container-low: #131313;
+  --color-on-background: #ffffff;
+  --color-tertiary-fixed: #f8a010;
+  --color-on-tertiary-fixed-variant: #563400;
+  --color-on-error-container: #ffa8a3;
+  --color-inverse-on-surface: #565554;
+  --color-primary-container: #6e9fff;
+  --color-on-secondary: #005a3c;
+  --color-surface-tint: #85adff;
+  --color-on-primary: #002c66;
+  --color-surface-container-highest: #262626;
+  --color-surface-bright: #2c2c2c;
+  --color-secondary-fixed-dim: #58e7ab;
+  --color-on-error: #490006;
+  --color-error-dim: #d7383b;
+  --color-surface-dim: #0e0e0e;
+  --color-primary-fixed: #6e9fff;
+  --color-on-secondary-fixed-variant: #006544;
+  --color-on-secondary-container: #e1ffec;
+  --color-primary-fixed-dim: #5391ff;
+  --color-background: #0e0e0e;
+  --color-surface: #0e0e0e;
+  --color-on-secondary-fixed: #00452d;
+  --color-on-primary-container: #002150;
+  --color-inverse-primary: #005bc4;
+  --color-secondary-container: #006c49;
+  --color-secondary: #69f6b8;
+  --color-outline-variant: #494847;
+  --color-error-container: #9f0519;
+  --color-on-surface: #ffffff;
+  --color-tertiary-container: #f8a010;
+  --color-on-surface-variant: #adaaaa;
+  --color-tertiary: #ffb148;
+  --color-error: #ff716c;
+  --color-primary-dim: #699cff;
+  --color-secondary-dim: #58e7ab;
+  --color-outline: #777575;
+
+  --font-headline: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-label: var(--font-inter);
+}
+
+:root {
+  --background: #0e0e0e;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Material Icons and utilities */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.glass-card {
+  background: rgba(38, 38, 38, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top right, rgba(133, 173, 255, 0.08), transparent);
+}

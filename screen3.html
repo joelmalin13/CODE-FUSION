@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#f8a010",
+            "on-primary-container": "#002150",
+            "surface-dim": "#0e0e0e",
+            "primary-fixed-dim": "#5391ff",
+            "error": "#ff716c",
+            "on-error-container": "#ffa8a3",
+            "tertiary-fixed": "#f8a010",
+            "secondary": "#69f6b8",
+            "on-secondary": "#005a3c",
+            "secondary-fixed": "#69f6b8",
+            "on-secondary-fixed-variant": "#006544",
+            "outline": "#777575",
+            "primary-fixed": "#6e9fff",
+            "surface-bright": "#2c2c2c",
+            "on-primary-fixed": "#000000",
+            "surface-container-high": "#201f1f",
+            "surface-container-low": "#131313",
+            "inverse-surface": "#fcf8f8",
+            "on-secondary-container": "#e1ffec",
+            "surface-container-highest": "#262626",
+            "tertiary-dim": "#e79400",
+            "secondary-dim": "#58e7ab",
+            "surface-variant": "#262626",
+            "on-tertiary-fixed-variant": "#563400",
+            "on-primary": "#002c66",
+            "on-surface": "#ffffff",
+            "surface": "#0e0e0e",
+            "primary-container": "#6e9fff",
+            "on-tertiary-container": "#4a2c00",
+            "on-surface-variant": "#adaaaa",
+            "on-error": "#490006",
+            "on-primary-fixed-variant": "#002a62",
+            "primary": "#85adff",
+            "primary-dim": "#699cff",
+            "on-tertiary-fixed": "#2a1700",
+            "tertiary-fixed-dim": "#e79400",
+            "tertiary": "#ffb148",
+            "surface-container-lowest": "#000000",
+            "secondary-container": "#006c49",
+            "inverse-on-surface": "#565554",
+            "inverse-primary": "#005bc4",
+            "on-secondary-fixed": "#00452d",
+            "error-dim": "#d7383b",
+            "background": "#0e0e0e",
+            "surface-tint": "#85adff",
+            "outline-variant": "#494847",
+            "on-background": "#ffffff",
+            "error-container": "#9f0519",
+            "secondary-fixed-dim": "#58e7ab",
+            "surface-container": "#1a1919",
+            "on-tertiary": "#573500"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-panel {
+      background: rgba(26, 25, 25, 0.4);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .rank-glow-1 { filter: drop-shadow(0 0 8px #ffb148); }
+    .rank-glow-2 { filter: drop-shadow(0 0 8px #adaaaa); }
+    .rank-glow-3 { filter: drop-shadow(0 0 8px #e79400); }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Navigation Shell -->
+<header class="bg-[#0e0e0e] dark:bg-[#0e0e0e] fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(59,130,246,0.08)]">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-500 dark:text-blue-400" data-icon="terminal">terminal</span>
+<span class="text-2xl font-black text-white tracking-tighter font-['Space_Grotesk']">CodeArena</span>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-gray-500 hover:bg-[#262626] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Editor</a>
+<a class="text-gray-500 hover:bg-[#262626] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Terminal</a>
+<a class="text-gray-500 hover:bg-[#262626] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Problems</a>
+<a class="text-blue-400 font-bold px-3 py-1 rounded-lg" href="#">Leaderboard</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-surface-container px-3 py-1.5 rounded-full border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary text-sm mr-2" data-icon="timer">timer</span>
+<span class="text-blue-500 dark:text-blue-400 font-['Space_Grotesk'] tracking-tight font-bold">00:42:15</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-dim p-[2px]">
+<div class="w-full h-full rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a young man with glasses and tech-wear clothing in a dark studio setting with neon blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUamdBTFQHKRgRreGmHDPc2OPZiPEIWvuZZK7fXLJVhZZTtdU98TY4Tu2VaUXMf8dUz9NRY95A0CQVO9f8-9ZIZgr1_647gPyd7-4dLJanT-da8SuOak_OB6oWxEmFXKHERRpGNEDNC8TOq3HXxUdYQpyTizl5x-chi8-1isMvCchx4phMt-czX4ohCm2a6TCPPfxGRsJdPPWXWrOK7iO484rUV-Jgj112WYjDHA5W8Ld20eNvXlYTtAngyBBEWx9MOmdnkZyJvlsl"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-6xl mx-auto min-h-screen">
+<!-- Hero Header Section -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<h1 class="text-4xl md:text-6xl font-headline font-black tracking-tighter text-white">
+          THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">ELITE</span> ARENA
+        </h1>
+<p class="text-on-surface-variant max-w-lg leading-relaxed">
+          Real-time global rankings for Sprint Challenge #42. Every millisecond counts toward the throne.
+        </p>
+</div>
+<div class="flex gap-4">
+<div class="glass-panel p-4 rounded-xl border border-white/5 flex flex-col items-center min-w-[120px]">
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold mb-1">Participants</span>
+<span class="text-2xl font-headline font-bold">1,284</span>
+</div>
+<div class="glass-panel p-4 rounded-xl border border-white/5 flex flex-col items-center min-w-[120px]">
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold mb-1">Avg. Time</span>
+<span class="text-2xl font-headline font-bold text-secondary">38m</span>
+</div>
+</div>
+</section>
+<!-- Leaderboard Table Container -->
+<div class="relative overflow-hidden glass-panel rounded-2xl border border-white/5 shadow-2xl">
+<!-- Glow Effect -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 blur-[100px] pointer-events-none"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 blur-[100px] pointer-events-none"></div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/5 bg-surface-container-low/50">
+<th class="py-5 px-6 font-headline text-on-surface-variant text-sm tracking-widest uppercase">Rank</th>
+<th class="py-5 px-6 font-headline text-on-surface-variant text-sm tracking-widest uppercase">Competitor</th>
+<th class="py-5 px-6 font-headline text-on-surface-variant text-sm tracking-widest uppercase text-right">Score</th>
+<th class="py-5 px-6 font-headline text-on-surface-variant text-sm tracking-widest uppercase text-center">Progress</th>
+<th class="py-5 px-6 font-headline text-on-surface-variant text-sm tracking-widest uppercase text-right">Time</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/[0.03]">
+<!-- Rank 1 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary rank-glow-1 text-3xl" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-headline font-black text-xl italic text-tertiary">1ST</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest" data-alt="profile avatar of a young developer with a beanie, looking confident" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8cCOs-KkjFRRXJd9wVoiWEzxts4eTkyAuIpih3Go5Q4-BTzfEFIcD98tTlRiGuJGZJMc8N02qR0x4QoWb_IMF-X-WFaAiBZ7Ne2AG0CwcGYRfiY4RJbdHdrNvGwMOAKHl7d6z59J27CiTzFFO6OdH0vZrJiIONi_70t69tmZXPc2XenIbqzJasw41fVuGJh0e99WDwT7OrK2SR8tXdgiGK0JAvLFCenzo47bhLRWee8jeB6jEJXgPmTHrAreTdmM5GMH_pkdoX3A4"/>
+<div>
+<div class="font-bold text-white">Felix Chen</div>
+<div class="text-[10px] text-secondary uppercase tracking-tighter">Full Stack Legend</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right">
+<span class="font-headline font-bold text-xl text-white">295 <span class="text-xs font-medium text-on-surface-variant">pts</span></span>
+</td>
+<td class="py-5 px-6">
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline font-bold text-sm">5/5</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-headline text-on-surface-variant tabular-nums">38m 12s</td>
+</tr>
+<!-- Rank 2 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant rank-glow-2 text-3xl" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-headline font-black text-xl italic text-on-surface-variant">2ND</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest" data-alt="profile avatar of a young woman with blue hair, looking sharp" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe65sNDokbzBYjg0vABKj23_W05bFspMbxoa8nykFPuhryGPZNwGJC8FIZK7z_z58q4kCJxy4kPF9z5-XRNeX2r6t7xg_lSp7DlWHALTOg4u7-VXgeTJRGApT5a3r5MsCnduh9-Ek6519fUBwsCR8Af2lvnBh2AvtKY6iyxbvrkYSjrF5Wtgi3ycdv7f2DdeHr24icmteiBWUY2zR5upO2T4vuRLOCznWaEgHMDCatLlxpX50TRnq3wfRP6SznGiwIttNZtw8jUa1W"/>
+<div>
+<div class="font-bold text-white">Sarah Jenkins</div>
+<div class="text-[10px] text-primary uppercase tracking-tighter">Algorithm Expert</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right">
+<span class="font-headline font-bold text-xl text-white">280 <span class="text-xs font-medium text-on-surface-variant">pts</span></span>
+</td>
+<td class="py-5 px-6">
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline font-bold text-sm">5/5</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-headline text-on-surface-variant tabular-nums">41m 05s</td>
+</tr>
+<!-- Rank 3 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-dim rank-glow-3 text-3xl" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-headline font-black text-xl italic text-tertiary-dim">3RD</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest" data-alt="profile avatar of a man with a beard and headset, looking focused" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMR81G9ffS0BFVyBEP549owUJXQEmSsemArF6TJ4Uv6qyjf2xkr5PXA-2-lTGM9-76D1DEgi99j4E4b-FQx0swfmLAD61uCi9r8wjarhfTs9fPS8MEe8astBlWGfY6CYhfHQFr4s4qFDvqEh10UQD0vsH9IjeyCvNSXBXfuM3Hi5cyBRcAUxbr_9UDW5t0F1eNTinjCFm-W2dVZnH2H1fpEE6x38WgE0vPlLZAtSdOlrWQjzyEfWCabkLi2PzC4gdAI4satL9rtNiz"/>
+<div>
+<div class="font-bold text-white">Marco Rossi</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Speed Coder</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right">
+<span class="font-headline font-bold text-xl text-white">272 <span class="text-xs font-medium text-on-surface-variant">pts</span></span>
+</td>
+<td class="py-5 px-6">
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline font-bold text-sm">4/5</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%]"></div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-headline text-on-surface-variant tabular-nums">43m 50s</td>
+</tr>
+<!-- User Row (Highlighted) -->
+<tr class="bg-primary/10 relative overflow-hidden ring-1 ring-primary/30 shadow-[inset_0_0_40px_rgba(133,173,255,0.15)]">
+<td class="py-6 px-6 relative z-10">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary-container rounded-full font-headline font-black italic">14</span>
+</div>
+</td>
+<td class="py-6 px-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="w-12 h-12 rounded-lg bg-surface-container-highest border-2 border-primary" data-alt="user's own profile avatar, glowing with a soft blue aura" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ7DuHWMXftAg9qsQRcOEe9F_AOBlofPznDNRP0634kGS60S0fADpaM73db3SZkM6Ha1UIecR5N1DQY38fC-fgbDdnbgYRRmdO5xOXeueMO3xc_KzljAQLH6yKo_0r1H8kbVqf9l97BcugCwmA8DJwq0TDCEKjopSSP6JeqkUHg7peJus-AF4arBaRGrURBPbcwnmInBQuGkd6Qv1rB3o8QTPZPah3skFrsFysVT8KTrheFvqMDam9BxxMIgIxY9X1lMi5ozLb_2Ju"/>
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-[#0e0e0e]"></div>
+</div>
+<div>
+<div class="font-black text-primary text-lg">Alex Rivers (You)</div>
+<div class="text-[10px] text-primary-fixed uppercase tracking-widest font-bold">Rising Challenger</div>
+</div>
+</div>
+</td>
+<td class="py-6 px-6 text-right relative z-10">
+<span class="font-headline font-black text-2xl text-white">250 <span class="text-xs font-medium text-primary">pts</span></span>
+</td>
+<td class="py-6 px-6 relative z-10">
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline font-bold text-lg text-primary">3/5</span>
+<div class="w-32 h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-dim w-[60%] shadow-[0_0_10px_rgba(133,173,255,0.5)]"></div>
+</div>
+</div>
+</td>
+<td class="py-6 px-6 text-right font-headline text-white font-bold text-lg tabular-nums relative z-10">45m 12s</td>
+</tr>
+<!-- Rank 15 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant text-lg px-2">15</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest" data-alt="profile avatar of a young woman with glasses and a professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF6QIt-E4TP7nfMPCJNTOkCHzmhCfpRRCdO4iOM1sgarR3D0RlIUvlHch0j2LzkKhZy0fySYYHJAlKX0BDQiGBHErXxhebLMkajwX5V8UfNV8CoO-WTg8icDRldiYLbSSAThTHv1bAXGzEDUCEwH_e1tBLoHNObWZow95mjNFGgPxyXdZziH3CdDGm6MaAUcSEhUHW4UZD0GsgLzI9VORkJwiTFJ1f0ud_smfJeQRlf4jWWHZXq1cuVaiZf4fMGJURtwf8cx5iiQsM"/>
+<div>
+<div class="font-bold text-white">Priya Sharma</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Backend Specialist</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right">
+<span class="font-headline font-bold text-xl text-white">248 <span class="text-xs font-medium text-on-surface-variant">pts</span></span>
+</td>
+<td class="py-5 px-6">
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline font-bold text-sm">3/5</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%]"></div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-headline text-on-surface-variant tabular-nums">46m 33s</td>
+</tr>
+<!-- Rank 16 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant text-lg px-2">16</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest" data-alt="profile avatar of a sporty individual with a baseball cap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-klK-Iud4-TKCRUC1yKnZQJETQk0TYUUyWjZxEfH1rpO9GLP4dJwwJ0w6voDdUyfcJg6zOJG46FcXQvKKfA4sRbZw6sqsHD4bJ0cJJX_lIozmvBzV-RNtY1kflIgQBeASgWWTLKWqcPt_hmJPqprHXe2xxraI7JQz95EBd-6Gj86xx6Ho-ZyyhhJ2t2yLNcTEz-lcBCjMb4bcWXJEX-t3K3XF8BGHLuruv_AvyPriq383DEuxky-jNpRZhj4RcmgpgyjhK99xnzez"/>
+<div>
+<div class="font-bold text-white">Jordan Smith</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Frontend Ninja</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right">
+<span class="font-headline font-bold text-xl text-white">245 <span class="text-xs font-medium text-on-surface-variant">pts</span></span>
+</td>
+<td class="py-5 px-6">
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline font-bold text-sm">3/5</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%]"></div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6 text-right font-headline text-on-surface-variant tabular-nums">47m 02s</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination/Footer -->
+<div class="p-6 flex justify-between items-center bg-surface-container-lowest/40 border-t border-white/5">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant hover:text-white hover:bg-white/5 transition-all text-sm font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+          Previous
+        </button>
+<div class="flex gap-2">
+<span class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-sm">1</span>
+<span class="w-8 h-8 flex items-center justify-center rounded hover:bg-white/5 text-on-surface-variant hover:text-white cursor-pointer transition-colors text-sm font-bold">2</span>
+<span class="w-8 h-8 flex items-center justify-center rounded hover:bg-white/5 text-on-surface-variant hover:text-white cursor-pointer transition-colors text-sm font-bold">3</span>
+<span class="w-8 h-8 flex items-center justify-center text-on-surface-variant">...</span>
+<span class="w-8 h-8 flex items-center justify-center rounded hover:bg-white/5 text-on-surface-variant hover:text-white cursor-pointer transition-colors text-sm font-bold">48</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant hover:text-white hover:bg-white/5 transition-all text-sm font-bold uppercase tracking-widest">
+          Next
+          <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Additional Context Bento Grid -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel p-8 rounded-2xl border border-white/5 col-span-1 md:col-span-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<h3 class="font-headline font-bold text-2xl text-white mb-4">Challenge Summary</h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Most Hard</div>
+<div class="text-white font-headline font-bold">Prob. 04</div>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Avg Score</div>
+<div class="text-white font-headline font-bold">142 pts</div>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Language</div>
+<div class="text-white font-headline font-bold">Rust</div>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Submission</div>
+<div class="text-white font-headline font-bold">84% Success</div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-2xl border border-white/5 flex flex-col justify-center items-center text-center group">
+<span class="material-symbols-outlined text-4xl text-primary mb-4 group-hover:scale-110 transition-transform" data-icon="share">share</span>
+<h3 class="font-headline font-bold text-xl text-white mb-2">Invite Rivals</h3>
+<p class="text-on-surface-variant text-sm mb-4">Think you can beat your friends? Share the link.</p>
+<button class="w-full bg-primary py-3 rounded-lg text-on-primary-container font-black uppercase tracking-widest text-xs hover:shadow-[0_0_20px_rgba(133,173,255,0.4)] transition-all">Copy Challenge Link</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Navigation Shell (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center pb-6 pt-3 px-4 bg-[#0e0e0e]/80 backdrop-blur-xl z-50 border-t border-white/5 rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-gray-500 px-4 py-1 hover:text-white transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="text-[10px] font-medium font-['Inter'] uppercase tracking-widest mt-1">Editor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 px-4 py-1 hover:text-white transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="reorder">reorder</span>
+<span class="text-[10px] font-medium font-['Inter'] uppercase tracking-widest mt-1">Terminal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 px-4 py-1 hover:text-white transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="text-[10px] font-medium font-['Inter'] uppercase tracking-widest mt-1">Problems</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-500/10 text-blue-400 rounded-xl px-4 py-1 hover:text-white transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-[10px] font-medium font-['Inter'] uppercase tracking-widest mt-1">Leaderboard</span>
+</a>
+</footer>
+</body></html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Two Sum - CodeArena Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .code-glow {
+            text-shadow: 0 0 10px rgba(133, 173, 255, 0.3);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #494847;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "tertiary-container": "#f8a010",
+                "on-tertiary": "#573500",
+                "primary-container": "#6e9fff",
+                "on-error": "#490006",
+                "tertiary-dim": "#e79400",
+                "secondary-container": "#006c49",
+                "surface-container": "#1a1919",
+                "primary-fixed": "#6e9fff",
+                "error": "#ff716c",
+                "on-secondary": "#005a3c",
+                "error-container": "#9f0519",
+                "surface-bright": "#2c2c2c",
+                "inverse-on-surface": "#565554",
+                "outline-variant": "#494847",
+                "surface-container-low": "#131313",
+                "surface-container-highest": "#262626",
+                "on-surface-variant": "#adaaaa",
+                "surface-container-lowest": "#000000",
+                "on-surface": "#ffffff",
+                "background": "#0e0e0e",
+                "tertiary-fixed-dim": "#e79400",
+                "surface-container-high": "#201f1f",
+                "primary-fixed-dim": "#5391ff",
+                "surface-variant": "#262626",
+                "on-tertiary-fixed": "#2a1700",
+                "tertiary": "#ffb148",
+                "primary-dim": "#699cff",
+                "secondary-fixed-dim": "#58e7ab",
+                "on-secondary-container": "#e1ffec",
+                "secondary": "#69f6b8",
+                "on-tertiary-fixed-variant": "#563400",
+                "outline": "#777575",
+                "on-primary-fixed-variant": "#002a62",
+                "on-tertiary-container": "#4a2c00",
+                "on-primary-container": "#002150",
+                "on-background": "#ffffff",
+                "error-dim": "#d7383b",
+                "on-secondary-fixed": "#00452d",
+                "on-primary-fixed": "#000000",
+                "tertiary-fixed": "#f8a010",
+                "surface-dim": "#0e0e0e",
+                "secondary-fixed": "#69f6b8",
+                "primary": "#85adff",
+                "inverse-primary": "#005bc4",
+                "on-primary": "#002c66",
+                "on-secondary-fixed-variant": "#006544",
+                "on-error-container": "#ffa8a3",
+                "inverse-surface": "#fcf8f8",
+                "secondary-dim": "#58e7ab",
+                "surface-tint": "#85adff",
+                "surface": "#0e0e0e"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 antialiased overflow-hidden h-screen">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full shadow-[0_4px_24px_rgba(59,130,246,0.08)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-blue-500" data-icon="terminal">terminal</span>
+<h1 class="font-headline tracking-tight font-bold text-2xl text-blue-500">Two Sum</h1>
+<div class="h-6 w-[1px] bg-outline-variant/30 ml-2"></div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-highest rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="timer">timer</span>
+<span class="font-headline font-bold text-lg tabular-nums tracking-wider text-tertiary">24:30</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="text-blue-400 border-b-2 border-blue-500 font-medium py-1 text-sm tracking-wide" href="#">Editor</a>
+<a class="text-gray-500 hover:text-white transition-colors duration-200 font-medium py-1 text-sm tracking-wide" href="#">Problems</a>
+<a class="text-gray-500 hover:text-white transition-colors duration-200 font-medium py-1 text-sm tracking-wide" href="#">Leaderboard</a>
+</nav>
+<div class="h-8 w-8 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="pt-16 pb-20 md:pb-0 h-full grid grid-cols-1 md:grid-cols-12 gap-px bg-outline-variant/10">
+<!-- Left Panel: Problem Details -->
+<section class="md:col-span-4 lg:col-span-3 bg-surface-container-low flex flex-col overflow-y-auto border-r border-white/5">
+<div class="p-6 space-y-6">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline text-2xl font-bold tracking-tight">Two Sum</h2>
+<div class="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-container">
+                            Easy
+                        </div>
+</div>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="prose prose-invert prose-sm max-w-none text-on-surface-variant leading-relaxed">
+<p>Given an array of integers <code class="bg-surface-container-highest px-1.5 py-0.5 rounded text-primary">nums</code> and an integer <code class="bg-surface-container-highest px-1.5 py-0.5 rounded text-primary">target</code>, return indices of the two numbers such that they add up to target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>You can return the answer in any order.</p>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface/60">Example 1</h3>
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-white/5 space-y-2">
+<div class="flex gap-2 text-xs">
+<span class="text-primary-dim font-bold">Input:</span>
+<span class="font-mono text-on-surface-variant">nums = [2,7,11,15], target = 9</span>
+</div>
+<div class="flex gap-2 text-xs">
+<span class="text-primary-dim font-bold">Output:</span>
+<span class="font-mono text-on-surface-variant">[0,1]</span>
+</div>
+<div class="flex gap-2 text-xs">
+<span class="text-primary-dim font-bold">Explanation:</span>
+<span class="font-mono text-on-surface-variant italic">Because nums[0] + nums[1] == 9, we return [0, 1].</span>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full py-3 px-4 rounded-xl bg-surface-container-highest border border-primary/20 flex items-center justify-center gap-2 group hover:border-primary/50 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="lightbulb">lightbulb</span>
+<span class="font-bold text-sm tracking-wide text-primary uppercase">Get Hint</span>
+</button>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-white/5 bg-surface-container">
+<div class="flex items-center gap-3">
+<img alt="Developer productivity concept" class="w-10 h-10 rounded-lg object-cover" data-alt="Abstract visualization of clean code syntax highlighting on a high resolution dark monitor with shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz8TAKB3upjMeXyRDs_wQuTeW96uxF9ewbvkakMA1MCn8hNk29-nlWcXKQ--HGWTzb9vEQKPi6RIyV2Sh6tjf389Hqa1doBNsga8N76fHnlxpq63ypCIGF3F-vLE_k4RAGRpaSdGESF0ZL8kK6f54ls97LgzGQSteek9Lo8AF1di39Q4jKjH28CR5AK32c07RkC4t3Vy5kPC4TWN3h8qrNOT3weB7plY4It9NWE_CZr2hVY-YxNZGxKdAejf1AoJYlg49Mryp8V_Ck"/>
+<div>
+<p class="text-xs font-bold text-on-surface">Daily Challenge</p>
+<p class="text-[10px] text-on-surface-variant">Complete to earn +50 Arena XP</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Code Editor & Terminal -->
+<section class="md:col-span-8 lg:col-span-9 flex flex-col h-full overflow-hidden">
+<!-- Editor View -->
+<div class="flex-grow flex flex-col bg-surface-container-lowest relative">
+<!-- Editor Header -->
+<div class="h-12 flex items-center justify-between px-4 bg-surface-container border-b border-white/5">
+<div class="flex items-center gap-4 h-full">
+<div class="h-full px-4 border-b-2 border-primary flex items-center gap-2 bg-surface-container-highest">
+<span class="material-symbols-outlined text-blue-400 text-sm" data-icon="code">code</span>
+<span class="text-xs font-medium tracking-tight">solution.py</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<select class="bg-surface-container-highest border-none text-xs font-semibold rounded px-3 py-1.5 focus:ring-1 focus:ring-primary text-on-surface-variant">
+<option>Python 3.11</option>
+<option>C++ 20</option>
+<option>Java 17</option>
+<option>Rust 1.7</option>
+</select>
+<button class="p-1.5 hover:bg-white/5 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+<!-- Monaco Simulation -->
+<div class="flex-grow font-mono text-sm p-4 overflow-hidden flex">
+<div class="flex flex-col text-on-surface-variant/30 pr-4 text-right select-none border-r border-white/5 mr-4">
+<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="code-glow"><span class="text-primary-dim">class</span> <span class="text-secondary">Solution</span>:</div>
+<div class="pl-4"><span class="text-primary-dim">def</span> <span class="text-secondary">twoSum</span>(self, <span class="text-tertiary">nums</span>: List[<span class="text-tertiary">int</span>], <span class="text-tertiary">target</span>: <span class="text-tertiary">int</span>) -&gt; List[<span class="text-tertiary">int</span>]:</div>
+<div class="pl-8 text-on-surface-variant/50"># Write your solution here</div>
+<div class="pl-8 bg-primary/10 w-full rounded flex items-center"><span class="text-tertiary">prevMap</span> = {} <span class="animate-pulse w-1 h-5 bg-primary ml-1"></span></div>
+<div class="pl-8 mt-1"><span class="text-primary-dim">for</span> i, n <span class="text-primary-dim">in</span> <span class="text-secondary">enumerate</span>(nums):</div>
+<div class="pl-12">diff = target - n</div>
+<div class="pl-12"><span class="text-primary-dim">if</span> diff <span class="text-primary-dim">in</span> prevMap:</div>
+<div class="pl-16"><span class="text-primary-dim">return</span> [prevMap[diff], i]</div>
+<div class="pl-12">prevMap[n] = i</div>
+<div class="pl-8"><span class="text-primary-dim">return</span> []</div>
+</div>
+</div>
+<!-- Editor Actions -->
+<div class="absolute bottom-4 right-6 flex gap-3">
+<button class="px-5 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md border border-white/10 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-all">
+                        Run Code
+                    </button>
+<button class="px-8 py-2 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(133,173,255,0.4)] hover:scale-105 active:scale-95 transition-all">
+                        Submit
+                    </button>
+</div>
+</div>
+<!-- Bottom Panel: Terminal & Results -->
+<div class="h-1/3 bg-surface-container-lowest border-t border-white/5 flex flex-col">
+<div class="h-10 flex items-center px-6 gap-6 bg-surface-container/50 border-b border-white/5">
+<button class="text-[10px] font-black uppercase tracking-widest text-primary border-b-2 border-primary h-full">Test Cases</button>
+<button class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant hover:text-white transition-colors">Console</button>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 p-6 gap-8 overflow-y-auto">
+<!-- Results List -->
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-xl bg-secondary-container/10 border border-secondary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-semibold">Test Case 1</span>
+</div>
+<span class="text-xs font-mono text-secondary">0.02s</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-secondary-container/10 border border-secondary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-semibold">Test Case 2</span>
+</div>
+<span class="text-xs font-mono text-secondary">0.01s</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-error-container/10 border border-error/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="cancel" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span class="text-sm font-semibold">Test Case 3</span>
+</div>
+<span class="text-xs font-mono text-error">TLE</span>
+</div>
+</div>
+<!-- Comparison -->
+<div class="bg-surface-container rounded-xl p-4 space-y-4 border border-white/5">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Actual Output</label>
+<div class="bg-surface-container-lowest p-2 rounded font-mono text-sm text-secondary border border-secondary/10">[0,1]</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Expected Output</label>
+<div class="bg-surface-container-lowest p-2 rounded font-mono text-sm text-on-surface-variant border border-white/5">[0,1]</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe bg-[#131313]/90 backdrop-blur-lg border-t border-white/5 z-50">
+<div class="flex flex-col items-center justify-center bg-blue-500/10 text-blue-400 rounded-xl px-4 py-1">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-semibold mt-1">Editor</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 px-4 py-1">
+<span class="material-symbols-outlined" data-icon="vertical_align_bottom">vertical_align_bottom</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-semibold mt-1">Terminal</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 px-4 py-1">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-semibold mt-1">Problems</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 px-4 py-1">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-semibold mt-1">Leaderboard</span>
+</div>
+</nav>
+</body></html>
